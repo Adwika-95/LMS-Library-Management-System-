@@ -3,17 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart College Library Management System</title>
+  <title>Library Management Portal</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="home">
-  <div class="overlay">
-    <h1>Smart College Library Management System</h1>
-    <p>Manage books efficiently across Students, Faculty, Scholars & Dean — all in one digital platform.</p>
-    <div class="btn-group">
-      <a href="login.html" class="btn">Login</a>
-      <a href="best_sellers.html" class="btn">Explore Best Sellers</a>
-    </div>
-  </div>
+  <header>
+    <nav class="navbar">
+      <h2 class="logo">📚 MyLibrary</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="best_sellers.html">Best Sellers</a></li>
+        <li><a href="reference.html">Reference</a></li>
+        <li><a href="fine_calculator.html">Fine Calculator</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="overlay">
+    <h1>Welcome to MyLibrary Portal</h1>
+    <p>Your digital space to borrow, return, and explore books easily.</p>
+    <button onclick="location.href='login.html'" class="btn">Go to Login</button>
+  </section>
 </body>
 </html>

@@ -1,257 +1,265 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
+/* 🌐 Global Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
+/* 🌆 Background */
 body {
+  background: url("Libraryaes.jpg") no-repeat center center/cover;
   color: #fff;
-  background: #121212;
+  min-height: 100vh;
 }
 
-/* Homepage */
-.home {
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-    url('Libraryaes.jpg') center/cover no-repeat;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: fadeIn 2s ease-in-out;
-}
-
-.overlay {
-  text-align: center;
-  max-width: 700px;
-}
-
-.overlay h1 {
-  font-size: 2.4rem;
-  text-shadow: 0 0 10px rgba(255,255,255,0.5);
-}
-
-.overlay p {
-  font-size: 1.1rem;
-  margin: 20px 0;
-  line-height: 1.5;
-}
-
-.btn-group {
-  margin-top: 20px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 10px 25px;
-  margin: 10px;
-  background: #ff4081;
-  border-radius: 30px;
-  color: white;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #e91e63;
-  transform: scale(1.05);
-}
-
-/* Login Page */
-.login-page {
-  background:
-    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-    url('Libraryaes.jpg') center/cover fixed no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.login-box {
-  background: rgba(255,255,255,0.1);
-  padding: 30px;
-  border-radius: 20px;
-  text-align: center;
-  backdrop-filter: blur(10px);
-  animation: fadeIn 2s ease;
-}
-
-.login-box h2 { margin-bottom: 20px; }
-
-.login-box input, select, button {
-  width: 100%;
-  margin: 8px 0;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-}
-
-.login-box input, select {
-  background: rgba(255,255,255,0.2);
-  color: #fff;
-}
-
-.login-box button {
-  background: #ff4081;
-  color: white;
-  cursor: pointer;
-}
-
-.back-link { display: block; margin-top: 15px; color: #ffb3d9; text-decoration: none; }
-
-/* Dashboard */
+/* 🧭 Navbar */
 .navbar {
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(0,0,0,0.6);
-  padding: 15px 30px;
-  backdrop-filter: blur(8px);
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
 }
 
+.navbar .logo,
+.navbar h1,
+.navbar h2 {
+  color: #ffcc70;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.navbar ul li a,
 .navbar a {
-  color: #ffb3d9;
-  margin-left: 15px;
+  color: #fff;
   text-decoration: none;
+  font-weight: 500;
   transition: 0.3s;
 }
 
-.navbar a:hover { color: #fff; }
+.navbar ul li a:hover,
+.navbar a:hover {
+  color: #ffcc70;
+}
 
-.library-actions {
+/* 🏠 Home Page */
+.overlay {
   text-align: center;
-  padding: 50px 20px;
-  margin: 40px auto;
-  max-width: 1000px;
-  background: rgba(255,255,255,0.05);
+  margin-top: 150px;
+  background: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  padding: 40px 60px;
   border-radius: 20px;
-  backdrop-filter: blur(10px);
-  animation: slideUp 1.5s ease-in-out;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
 }
 
-.library-actions h2 {
-  margin-bottom: 30px;
-  font-size: 2rem;
-  text-shadow: 0 0 10px #fff;
+.overlay h1 {
+  font-size: 2.2rem;
+  color: #ffcc70;
+  margin-bottom: 15px;
 }
 
-.action-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+.overlay p {
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+}
+
+/* 🔘 Buttons */
+.btn {
+  background: linear-gradient(135deg, #1a73e8, #0b3954);
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #00c9ff, #92fe9d);
+  transform: scale(1.05);
+}
+
+/* 🔐 Login Page */
+.login-container {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 15px;
+  width: 320px;
+  margin: 100px auto;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+.login-container h2 {
+  color: #ffcc70;
+  margin-bottom: 25px;
+}
+
+.login-container label {
+  display: block;
+  text-align: left;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.login-container input,
+.login-container select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 5px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.login-container input:focus,
+.login-container select:focus {
+  box-shadow: 0 0 10px #00c9ff;
+}
+
+/* 🧠 Dashboard */
+.dashboard-container {
+  text-align: center;
+  margin: 60px auto;
+  width: 80%;
+}
+
+.dashboard-container h2 {
+  color: #ffcc70;
+  margin-bottom: 25px;
 }
 
 .card {
-  background: rgba(255,255,255,0.1);
-  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 15px;
+  padding: 25px;
+  margin: 20px auto;
   width: 300px;
-  box-shadow: 0 0 15px rgba(255,255,255,0.2);
+  text-align: center;
   transition: 0.3s;
+  backdrop-filter: blur(6px);
 }
 
-.card:hover { transform: scale(1.05); }
-
-form input, form button {
-  width: 90%;
-  margin: 8px 0;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
+.card:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.1);
 }
 
-form input {
-  background: rgba(255,255,255,0.2);
-  color: #fff;
-}
-
-form button {
-  background: #ff4081;
-  color: white;
-  cursor: pointer;
-}
-
-form button:hover { background: #e91e63; }
-
-/* Best Sellers */
-.page-bg {
-  background:
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url('Libraryaes.jpg') center/cover fixed no-repeat;
-  min-height: 100vh;
+/* 🎖️ Best Sellers */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  width: 80%;
+  margin: 70px auto;
   padding: 40px;
-}
-
-.books-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  backdrop-filter: blur(6px);
 }
 
 .book-card {
-  background: rgba(255,255,255,0.1);
-  padding: 15px 25px;
-  margin: 10px;
-  border-radius: 15px;
-  width: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 10px;
   text-align: center;
   transition: 0.3s;
 }
 
-.book-card:hover { transform: scale(1.05); background: rgba(255,255,255,0.2); }
+.book-card:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
 
-/* Reference Books */
+.book-card h3 {
+  color: #ffcc70;
+  margin-bottom: 5px;
+}
+
+.book-card p {
+  color: #eee;
+  margin-bottom: 10px;
+}
+
+.rating {
+  color: #ffd700;
+}
+
+/* 📚 Reference Page */
 .ref-table {
   width: 80%;
-  margin: 60px auto;
+  margin: 80px auto;
   border-collapse: collapse;
-  backdrop-filter: blur(8px);
-  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
   overflow: hidden;
+  backdrop-filter: blur(6px);
 }
 
-.ref-table th, .ref-table td {
+.ref-table th,
+.ref-table td {
   padding: 15px;
-  background: rgba(255,255,255,0.1);
-  border-bottom: 1px solid rgba(255,255,255,0.3);
   text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.ref-table tr:hover { background: rgba(255,255,255,0.2); }
+.ref-table th {
+  color: #ffcc70;
+}
 
-/* Fine Calculator */
+/* 💰 Fine Calculator */
 .fine-box {
+  background: rgba(0, 0, 0, 0.6);
+  width: 350px;
+  margin: 100px auto;
+  padding: 40px;
   text-align: center;
-  margin-top: 100px;
+  border-radius: 15px;
+  backdrop-filter: blur(6px);
+}
+
+.fine-box h2 {
+  color: #ffcc70;
+  margin-bottom: 20px;
 }
 
 .fine-box input {
-  width: 200px;
+  width: 80%;
   padding: 10px;
-  border-radius: 8px;
   border: none;
-  margin: 10px;
-  background: rgba(255,255,255,0.2);
-  color: #fff;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
 .fine-box button {
-  padding: 10px 20px;
-  border-radius: 8px;
-  background: #ff4081;
+  background: linear-gradient(135deg, #00b09b, #96c93d);
+  color: #fff;
   border: none;
+  border-radius: 20px;
+  padding: 10px 25px;
   cursor: pointer;
-  color: white;
+  transition: 0.3s;
 }
 
-.fine-box button:hover { background: #e91e63; }
+.fine-box button:hover {
+  transform: scale(1.05);
+}
 
-/* Animations */
-@keyframes fadeIn { from { opacity: 0; transform: scale(1.05); } to { opacity: 1; transform: scale(1); } }
-@keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+.fine-box p {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #fff;
+}

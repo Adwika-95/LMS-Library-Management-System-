@@ -3,56 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard - Smart Library</title>
+  <title>Dashboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="dashboard">
-
-  <header class="navbar">
-    <h1>📚 Library Dashboard</h1>
-    <nav>
-      <a href="best_sellers.html">Best Sellers</a>
-      <a href="reference.html">Reference Books</a>
-      <a href="fine_calculator.html">Fine Calculator</a>
+  <header>
+    <nav class="navbar">
+      <h2 class="logo">📚 Dashboard</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="best_sellers.html">Best Sellers</a></li>
+        <li><a href="fine_calculator.html">Fine Calculator</a></li>
+        <li><a href="reference.html">Reference</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section class="library-actions">
-    <h2>Library Services</h2>
-    <div class="action-cards">
-      <div class="card">
-        <h3>📖 Issue a Book</h3>
-        <form id="issueForm">
-          <input type="text" placeholder="Student ID" required />
-          <input type="text" placeholder="Book Title" required />
-          <input type="date" required />
-          <button type="submit">Issue Book</button>
-        </form>
-      </div>
+  <section class="dashboard-container">
+    <h2>Welcome to Your Library Dashboard</h2>
 
-      <div class="card">
-        <h3>📚 Return a Book</h3>
-        <form id="returnForm">
-          <input type="text" placeholder="Student ID" required />
-          <input type="text" placeholder="Book Title" required />
-          <input type="date" required />
-          <button type="submit">Return Book</button>
-        </form>
-      </div>
+    <div class="card">
+      <h3>Issue a Book</h3>
+      <input type="text" placeholder="Enter Book Name" />
+      <button class="btn">Issue</button>
+    </div>
+
+    <div class="card">
+      <h3>Return a Book</h3>
+      <input type="text" placeholder="Enter Book Name" />
+      <button class="btn">Return</button>
+    </div>
+
+    <div class="card">
+      <h3>Check Issued Books</h3>
+      <button class="btn">View</button>
     </div>
   </section>
-
-  <script>
-  document.getElementById('issueForm').onsubmit = e => {
-    e.preventDefault();
-    alert('✅ Book issued successfully!');
-  };
-
-  document.getElementById('returnForm').onsubmit = e => {
-    e.preventDefault();
-    alert('📘 Book returned successfully!');
-  };
-  </script>
-
 </body>
 </html>
