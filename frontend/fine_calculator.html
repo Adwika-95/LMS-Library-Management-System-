@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fine Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function calculateFine() {
+      const days = document.getElementById('days').value;
+      const fine = days * 2;
+      document.getElementById('output').innerText = `Your Fine: ₹${fine}`;
+    }
+  </script>
+</head>
+<body class="fine-page">
+  <h2>💰 Fine Calculator</h2>
+  <input type="number" id="days" placeholder="Enter days late">
+  <button class="btn" onclick="calculateFine()">Calculate Fine</button>
+  <p id="output"></p>
+  <a href="dashboard.html" class="btn back">⬅ Back to Dashboard</a>
+</body>
+</html>

@@ -1,36 +1,147 @@
-body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to right, #a8edea, #fed6e3);
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+* {
   margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
-header {
-  background-color: #6a11cb;
-  color: white;
-  padding: 20px;
-  border-radius: 0 0 50px 50px;
-}
-.container {
+
+body {
+  background: #f4f4f4;
+  color: #333;
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin-top: 50px;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Home Page */
+.home {
+  background: url('images/library.jpg') center/cover no-repeat;
+}
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  text-align: center;
+  padding: 50px;
+  border-radius: 20px;
+}
+.btn {
+  background: #007bff;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  margin: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s;
+}
+.btn:hover {
+  transform: scale(1.05);
+  background: #0056b3;
+}
+.btn.secondary {
+  background: #28a745;
+}
+.btn.back {
+  margin-top: 20px;
+  background: #6c757d;
+}
+
+/* Login */
+.login-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  color: #fff;
+  background-color: #2d3e50cc;
+}
+.login-card input, .login-card select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+}
+
+/* Dashboard */
+.dashboard {
+  text-align: center;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 30px;
 }
 .card {
-  background: white;
-  border-radius: 20px;
-  width: 250px;
-  padding: 20px;
-  box-shadow: 0 0 10px gray;
+  background: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #333;
   transition: 0.3s;
 }
 .card:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-footer {
-  margin-top: 40px;
-  background: #6a11cb;
-  color: white;
+.blue { border-top: 6px solid #007bff; }
+.green { border-top: 6px solid #28a745; }
+.gold { border-top: 6px solid gold; }
+.red { border-top: 6px solid crimson; }
+
+/* Table */
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+tr:hover {
+  background: #f0f0f0;
+}
+
+/* Book List */
+.book-list {
+  list-style: none;
+  padding: 20px;
+  background: white;
+  width: 60%;
+  margin: auto;
+  border-radius: 10px;
+  text-align: left;
+}
+.book-list li {
   padding: 10px;
-  border-radius: 50px 50px 0 0;
+  border-bottom: 1px solid #ddd;
+  transition: 0.3s;
+}
+.book-list li:hover {
+  background: #e7f1ff;
+}
+
+/* Fine Calculator */
+.fine-page input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+#output {
+  margin-top: 20px;
+  font-weight: bold;
 }
