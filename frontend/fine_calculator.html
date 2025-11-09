@@ -5,19 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fine Calculator</title>
   <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-bg">
+  <header class="navbar">
+    <h1>💰 Fine Calculator</h1>
+    <a href="dashboard.html">← Back</a>
+  </header>
+
+  <section class="fine-box">
+    <h2>Calculate Your Fine</h2>
+    <input type="number" id="days" placeholder="Enter days late" />
+    <button onclick="calcFine()">Calculate Fine</button>
+    <p id="result"></p>
+  </section>
+
   <script>
-    function calculateFine() {
-      const days = document.getElementById('days').value;
+    function calcFine() {
+      const days = document.getElementById("days").value;
+      if (days <= 0) return alert("Enter valid days!");
       const fine = days * 2;
-      document.getElementById('output').innerText = `Your Fine: ₹${fine}`;
+      document.getElementById("result").innerText = `Your Fine: ₹${fine}`;
     }
   </script>
-</head>
-<body class="fine-page">
-  <h2>💰 Fine Calculator</h2>
-  <input type="number" id="days" placeholder="Enter days late">
-  <button class="btn" onclick="calculateFine()">Calculate Fine</button>
-  <p id="output"></p>
-  <a href="dashboard.html" class="btn back">⬅ Back to Dashboard</a>
 </body>
 </html>

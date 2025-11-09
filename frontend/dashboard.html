@@ -1,18 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard | Smart Library</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Smart Library</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body class="dashboard">
-  <h2>📚 Dashboard</h2>
-  <div class="grid">
-    <a href="best_sellers.html" class="card blue">💫 Best-Selling Books</a>
-    <a href="reference.html" class="card green">📖 Reference Books</a>
-    <a href="fine_calculator.html" class="card gold">💰 Fine Calculator</a>
-    <a href="index.html" class="card red">🏠 Back to Home</a>
-  </div>
+
+  <header class="navbar">
+    <h1>📚 Library Dashboard</h1>
+    <nav>
+      <a href="best_sellers.html">Best Sellers</a>
+      <a href="reference.html">Reference Books</a>
+      <a href="fine_calculator.html">Fine Calculator</a>
+    </nav>
+  </header>
+
+  <section class="library-actions">
+    <h2>Library Services</h2>
+    <div class="action-cards">
+      <div class="card">
+        <h3>📖 Issue a Book</h3>
+        <form id="issueForm">
+          <input type="text" placeholder="Student ID" required />
+          <input type="text" placeholder="Book Title" required />
+          <input type="date" required />
+          <button type="submit">Issue Book</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3>📚 Return a Book</h3>
+        <form id="returnForm">
+          <input type="text" placeholder="Student ID" required />
+          <input type="text" placeholder="Book Title" required />
+          <input type="date" required />
+          <button type="submit">Return Book</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  document.getElementById('issueForm').onsubmit = e => {
+    e.preventDefault();
+    alert('✅ Book issued successfully!');
+  };
+
+  document.getElementById('returnForm').onsubmit = e => {
+    e.preventDefault();
+    alert('📘 Book returned successfully!');
+  };
+  </script>
+
 </body>
 </html>
