@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reference Books - College Library</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1>📚 College Library Management System</h1>
+            <div class="user-info" id="userInfo"></div>
+        </div>
+    </header>
+
+    <main class="reference-page">
+        <div class="container">
+            <div class="page-header">
+                <h2>🔖 Reference Books</h2>
+                <p>These books are available for in-library use only</p>
+            </div>
+
+            <div class="info-banner">
+                <div class="info-icon">ℹ️</div>
+                <div class="info-text">
+                    <strong>Important Notice:</strong> Reference books are not available for issue.
+                    They must be consulted within the library premises only.
+                </div>
+            </div>
+
+            <div class="reference-table-container">
+                <table class="reference-table">
+                    <thead>
+                        <tr>
+                            <th>Book Title</th>
+                            <th>Author</th>
+                            <th>Subject</th>
+                            <th>Times Consulted</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="table-book-title">
+                                    <span class="book-icon">📖</span>
+                                    Advanced Engineering Mathematics
+                                </div>
+                            </td>
+                            <td>Erwin Kreyszig</td>
+                            <td><span class="badge badge-subject">Mathematics</span></td>
+                            <td>1 time</td>
+                            <td><span class="badge badge-reference">Reference Only</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-book-title">
+                                    <span class="book-icon">📖</span>
+                                    VLSI Design Reference Guide
+                                </div>
+                            </td>
+                            <td>Douglas Pucknell</td>
+                            <td><span class="badge badge-subject">VLSI</span></td>
+                            <td>1 time</td>
+                            <td><span class="badge badge-reference">Reference Only</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-book-title">
+                                    <span class="book-icon">📖</span>
+                                    Encyclopedia of Science
+                                </div>
+                            </td>
+                            <td>Britannica</td>
+                            <td><span class="badge badge-subject">General Knowledge</span></td>
+                            <td>1 time</td>
+                            <td><span class="badge badge-reference">Reference Only</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="reference-cards-mobile">
+                <div class="book-card reference">
+                    <div class="book-info">
+                        <h3>Advanced Engineering Mathematics</h3>
+                        <p class="author">Erwin Kreyszig</p>
+                        <span class="badge badge-subject">Mathematics</span>
+                        <span class="badge badge-reference">Reference Only</span>
+                        <p class="consult-count">Consulted 1 time</p>
+                    </div>
+                </div>
+
+                <div class="book-card reference">
+                    <div class="book-info">
+                        <h3>VLSI Design Reference Guide</h3>
+                        <p class="author">Douglas Pucknell</p>
+                        <span class="badge badge-subject">VLSI</span>
+                        <span class="badge badge-reference">Reference Only</span>
+                        <p class="consult-count">Consulted 1 time</p>
+                    </div>
+                </div>
+
+                <div class="book-card reference">
+                    <div class="book-info">
+                        <h3>Encyclopedia of Science</h3>
+                        <p class="author">Britannica</p>
+                        <span class="badge badge-subject">General Knowledge</span>
+                        <span class="badge badge-reference">Reference Only</span>
+                        <p class="consult-count">Consulted 1 time</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="back-button-container">
+                <button class="btn btn-secondary" onclick="window.location.href='dashboard.html'">← Back to Dashboard</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 College Library Management System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const userName = localStorage.getItem('userName');
+        const userRole = localStorage.getItem('userRole');
+
+        if (!userName || !userRole) {
+            window.location.href = 'login.html';
+        }
+
+        document.getElementById('userInfo').innerHTML = `
+            <span class="user-name">${userName}</span>
+            <span class="user-role">${userRole.charAt(0).toUpperCase() + userRole.slice(1)}</span>
+        `;
+    </script>
+</body>
+</html>

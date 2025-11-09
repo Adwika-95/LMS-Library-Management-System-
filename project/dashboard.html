@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - College Library</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1>📚 College Library Management System</h1>
+            <div class="user-info" id="userInfo"></div>
+        </div>
+    </header>
+
+    <main class="dashboard-page">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2>Dashboard</h2>
+                <p>Welcome back! Manage your library activities from here.</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card" onclick="alert('View Books feature coming soon!')">
+                    <div class="card-icon">📚</div>
+                    <h3>View Books</h3>
+                    <p>Browse all available books in the library</p>
+                </div>
+
+                <div class="dashboard-card" onclick="alert('Issue Book feature coming soon!')">
+                    <div class="card-icon">📤</div>
+                    <h3>Issue Book</h3>
+                    <p>Issue a book for your reading</p>
+                </div>
+
+                <div class="dashboard-card" onclick="alert('Return Book feature coming soon!')">
+                    <div class="card-icon">📥</div>
+                    <h3>Return Book</h3>
+                    <p>Return your issued books</p>
+                </div>
+
+                <div class="dashboard-card" onclick="alert('View My Issued Books feature coming soon!')">
+                    <div class="card-icon">📋</div>
+                    <h3>View My Issued Books</h3>
+                    <p>Check your current issued books</p>
+                </div>
+
+                <div class="dashboard-card highlight" onclick="window.location.href='best_seller.html'">
+                    <div class="card-icon">⭐</div>
+                    <h3>View Best Sellers</h3>
+                    <p>Explore the most popular books</p>
+                </div>
+
+                <div class="dashboard-card highlight" onclick="window.location.href='reference.html'">
+                    <div class="card-icon">🔖</div>
+                    <h3>View Reference Books</h3>
+                    <p>Browse reference-only materials</p>
+                </div>
+
+                <div class="dashboard-card highlight" onclick="window.location.href='fine_calculator.html'">
+                    <div class="card-icon">💰</div>
+                    <h3>Check Fines</h3>
+                    <p>Calculate any outstanding fines due</p>
+                </div>
+
+                <div id="deanOptions" style="display: none;">
+                    <div class="dashboard-card admin" onclick="alert('Add Book feature coming soon!')">
+                        <div class="card-icon">➕</div>
+                        <h3>Add Book</h3>
+                        <p>Add new books to the library</p>
+                    </div>
+
+                    <div class="dashboard-card admin" onclick="alert('Update Book feature coming soon!')">
+                        <div class="card-icon">✏️</div>
+                        <h3>Update Book</h3>
+                        <p>Update existing book information</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="logout-section">
+                <button class="btn btn-secondary" onclick="handleLogout()">Logout</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 College Library Management System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const userName = localStorage.getItem('userName');
+        const userRole = localStorage.getItem('userRole');
+
+        if (!userName || !userRole) {
+            window.location.href = 'login.html';
+        }
+
+        document.getElementById('userInfo').innerHTML = `
+            <span class="user-name">${userName}</span>
+            <span class="user-role">${userRole.charAt(0).toUpperCase() + userRole.slice(1)}</span>
+        `;
+
+        if (userRole === 'dean') {
+            document.getElementById('deanOptions').style.display = 'contents';
+        }
+
+        function handleLogout() {
+            localStorage.clear();
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>

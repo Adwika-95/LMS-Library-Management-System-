@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - College Library</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1>📚 College Library Management System</h1>
+        </div>
+    </header>
+
+    <main class="login-page">
+        <div class="container">
+            <div class="login-card">
+                <h2>Login to Your Account</h2>
+                <p class="subtitle">Enter your credentials to access the library system</p>
+
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userId">User ID</label>
+                        <input type="text" id="userId" name="userId" required placeholder="Enter your ID">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <select id="role" name="role" required>
+                            <option value="">Select your role</option>
+                            <option value="student">Student</option>
+                            <option value="faculty">Faculty</option>
+                            <option value="scholar">Scholar</option>
+                            <option value="dean">Dean</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+
+                <div class="login-footer">
+                    <a href="index.html" class="back-link">← Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 College Library Management System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const userId = document.getElementById('userId').value;
+            const role = document.getElementById('role').value;
+
+            localStorage.setItem('userName', name);
+            localStorage.setItem('userId', userId);
+            localStorage.setItem('userRole', role);
+
+            window.location.href = 'dashboard.html';
+        }
+    </script>
+</body>
+</html>

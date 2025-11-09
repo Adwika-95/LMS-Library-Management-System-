@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Sellers - College Library</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1>📚 College Library Management System</h1>
+            <div class="user-info" id="userInfo"></div>
+        </div>
+    </header>
+
+    <main class="best-seller-page">
+        <div class="container">
+            <div class="page-header">
+                <h2>⭐ Best Seller Books</h2>
+                <p>Most popular books based on issue counts</p>
+            </div>
+
+            <div class="books-grid">
+                <div class="book-card bestseller">
+                    <div class="book-cover">
+                        <div class="cover-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <span class="cover-title">The Alchemist</span>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>The Alchemist</h3>
+                        <p class="author">Paulo Coelho</p>
+                        <span class="badge badge-subject">Fiction</span>
+                        <div class="issue-stats">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p class="issue-count">Issued 5 times</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-card bestseller">
+                    <div class="book-cover">
+                        <div class="cover-placeholder" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <span class="cover-title">The Art of Public Speaking</span>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>The Art of Public Speaking</h3>
+                        <p class="author">Dale Carnegie</p>
+                        <span class="badge badge-subject">Communication</span>
+                        <div class="issue-stats">
+                            <div class="stars">⭐⭐⭐⭐</div>
+                            <p class="issue-count">Issued 4 times</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-card bestseller">
+                    <div class="book-cover">
+                        <div class="cover-placeholder" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            <span class="cover-title">Digital Electronics</span>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Digital Electronics</h3>
+                        <p class="author">M. Morris Mano</p>
+                        <span class="badge badge-subject">Electronics</span>
+                        <div class="issue-stats">
+                            <div class="stars">⭐⭐⭐</div>
+                            <p class="issue-count">Issued 3 times</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-card bestseller">
+                    <div class="book-cover">
+                        <div class="cover-placeholder" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                            <span class="cover-title">Data Structures Using C</span>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Data Structures Using C</h3>
+                        <p class="author">Reema Thareja</p>
+                        <span class="badge badge-subject">Computer Science</span>
+                        <div class="issue-stats">
+                            <div class="stars">⭐⭐</div>
+                            <p class="issue-count">Issued 2 times</p>
+                        </div>
+                        <p class="current-issue">Currently issued to Adwika (05-11-2025)</p>
+                    </div>
+                </div>
+
+                <div class="book-card bestseller">
+                    <div class="book-cover">
+                        <div class="cover-placeholder" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                            <span class="cover-title">Embedded Systems</span>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Embedded Systems</h3>
+                        <p class="author">Raj Kamal</p>
+                        <span class="badge badge-subject">Electronics</span>
+                        <div class="issue-stats">
+                            <div class="stars">⭐⭐</div>
+                            <p class="issue-count">Issued 2 times</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-card bestseller">
+                    <div class="book-cover">
+                        <div class="cover-placeholder" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
+                            <span class="cover-title">Advanced Engineering Mathematics</span>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Advanced Engineering Mathematics</h3>
+                        <p class="author">Erwin Kreyszig</p>
+                        <span class="badge badge-subject">Mathematics</span>
+                        <div class="issue-stats">
+                            <div class="stars">⭐</div>
+                            <p class="issue-count">Issued 1 time</p>
+                        </div>
+                        <span class="badge badge-reference">Reference Book</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="back-button-container">
+                <button class="btn btn-secondary" onclick="window.location.href='dashboard.html'">← Back to Dashboard</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 College Library Management System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const userName = localStorage.getItem('userName');
+        const userRole = localStorage.getItem('userRole');
+
+        if (!userName || !userRole) {
+            window.location.href = 'login.html';
+        }
+
+        document.getElementById('userInfo').innerHTML = `
+            <span class="user-name">${userName}</span>
+            <span class="user-role">${userRole.charAt(0).toUpperCase() + userRole.slice(1)}</span>
+        `;
+    </script>
+</body>
+</html>

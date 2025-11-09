@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fine Calculator - College Library</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="fine-calc-page">
+    <header class="main-header">
+        <div class="container">
+            <h1>📚 College Library Management System</h1>
+            <div class="user-info" id="userInfo"></div>
+        </div>
+    </header>
+
+    <main class="fine-calculator-page">
+        <div class="container">
+            <div class="page-header">
+                <h2>💰 Fine Calculator</h2>
+                <p>Check any outstanding fines on your account</p>
+            </div>
+
+            <div class="fine-calculator-container">
+                <div class="fine-calc-card">
+                    <h3>Calculate Your Fine</h3>
+
+                    <form id="fineForm">
+                        <div class="form-group">
+                            <label for="bookTitle">Book Title</label>
+                            <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter book title" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="issueDate">Date Issued</label>
+                            <input type="date" id="issueDate" name="issueDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dueDate">Due Date</label>
+                            <input type="date" id="dueDate" name="dueDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="returnDate">Return Date (Leave empty for today)</label>
+                            <input type="date" id="returnDate" name="returnDate">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dailyRate">Daily Fine Rate (₹)</label>
+                            <input type="number" id="dailyRate" name="dailyRate" value="10" min="1" step="1" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Calculate Fine</button>
+                    </form>
+                </div>
+
+                <div id="result-section" style="display: none;">
+                    <div class="fine-result-card">
+                        <div class="result-header">
+                            <h3>Fine Summary</h3>
+                        </div>
+
+                        <div class="result-details">
+                            <div class="result-row">
+                                <span class="result-label">Book Title:</span>
+                                <span class="result-value" id="resultTitle"></span>
+                            </div>
+                            <div class="result-row">
+                                <span class="result-label">Due Date:</span>
+                                <span class="result-value" id="resultDueDate"></span>
+                            </div>
+                            <div class="result-row">
+                                <span class="result-label">Return Date:</span>
+                                <span class="result-value" id="resultReturnDate"></span>
+                            </div>
+                            <div class="result-row">
+                                <span class="result-label">Days Late:</span>
+                                <span class="result-value" id="resultDaysLate"></span>
+                            </div>
+                            <div class="result-row">
+                                <span class="result-label">Daily Rate:</span>
+                                <span class="result-value">₹<span id="resultDailyRate"></span></span>
+                            </div>
+                        </div>
+
+                        <div id="fine-amount-section" style="display: none;">
+                            <div class="fine-amount">
+                                <span class="fine-label">Total Fine Due:</span>
+                                <span class="fine-value">₹<span id="fineAmount"></span></span>
+                            </div>
+                        </div>
+
+                        <div id="no-fine-section" style="display: none;">
+                            <div class="no-fine-message">
+                                <span class="check-icon">✓</span>
+                                <p>No fine due! You returned the book on time.</p>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1.5rem;" onclick="resetForm()">Calculate Another</button>
+                    </div>
+                </div>
+
+                <div class="fine-info-card">
+                    <h3>How Fine Calculation Works</h3>
+                    <ul class="info-list">
+                        <li><strong>Grace Period:</strong> No fine for up to 7 days after due date</li>
+                        <li><strong>Calculation:</strong> Fine = (Days Late - 7) × Daily Rate</li>
+                        <li><strong>Default Rate:</strong> ₹10 per day (adjustable)</li>
+                        <li><strong>Maximum Fine:</strong> Not to exceed ₹500 for any single book</li>
+                        <li><strong>Payment:</strong> Pay fines at the library counter or through the online portal</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="back-button-container">
+                <button class="btn btn-secondary" onclick="window.location.href='dashboard.html'">← Back to Dashboard</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 College Library Management System. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const userName = localStorage.getItem('userName');
+        const userRole = localStorage.getItem('userRole');
+
+        if (!userName || !userRole) {
+            window.location.href = 'login.html';
+        }
+
+        document.getElementById('userInfo').innerHTML = `
+            <span class="user-name">${userName}</span>
+            <span class="user-role">${userRole.charAt(0).toUpperCase() + userRole.slice(1)}</span>
+        `;
+
+        const GRACE_PERIOD = 7;
+        const MAX_FINE = 500;
+
+        document.getElementById('fineForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const bookTitle = document.getElementById('bookTitle').value;
+            const issueDate = new Date(document.getElementById('issueDate').value);
+            const dueDate = new Date(document.getElementById('dueDate').value);
+            let returnDate = document.getElementById('returnDate').value ?
+                new Date(document.getElementById('returnDate').value) :
+                new Date();
+            const dailyRate = parseInt(document.getElementById('dailyRate').value);
+
+            const daysLate = Math.max(0, Math.ceil((returnDate - dueDate) / (1000 * 60 * 60 * 24)));
+            let fine = 0;
+
+            if (daysLate > GRACE_PERIOD) {
+                fine = (daysLate - GRACE_PERIOD) * dailyRate;
+                fine = Math.min(fine, MAX_FINE);
+            }
+
+            document.getElementById('resultTitle').textContent = bookTitle;
+            document.getElementById('resultDueDate').textContent = dueDate.toLocaleDateString();
+            document.getElementById('resultReturnDate').textContent = returnDate.toLocaleDateString();
+            document.getElementById('resultDaysLate').textContent = daysLate + (daysLate === 1 ? ' day' : ' days');
+            document.getElementById('resultDailyRate').textContent = dailyRate;
+
+            if (fine > 0) {
+                document.getElementById('fineAmount').textContent = fine;
+                document.getElementById('fine-amount-section').style.display = 'block';
+                document.getElementById('no-fine-section').style.display = 'none';
+            } else {
+                document.getElementById('fine-amount-section').style.display = 'none';
+                document.getElementById('no-fine-section').style.display = 'block';
+            }
+
+            document.getElementById('result-section').style.display = 'block';
+            document.querySelector('.fine-calc-card').style.opacity = '0.5';
+        });
+
+        function resetForm() {
+            document.getElementById('fineForm').reset();
+            document.getElementById('result-section').style.display = 'none';
+            document.querySelector('.fine-calc-card').style.opacity = '1';
+        }
+    </script>
+</body>
+</html>
