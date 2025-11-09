@@ -7,141 +7,257 @@
   box-sizing: border-box;
 }
 
+/* Common body setup */
 body {
-  background: #f4f4f4;
-  color: #333;
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
 
-/* Home Page */
+/* === HOME PAGE === */
 .home {
-  background: url('images/library.jpg') center/cover no-repeat;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('images/Libraryaes.jpg') center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1.5s ease-in;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 .overlay {
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
   text-align: center;
-  padding: 50px;
+  padding: 40px;
   border-radius: 20px;
-}
-.btn {
-  background: #007bff;
   color: white;
-  padding: 12px 25px;
+  animation: floatUp 1.2s ease-out;
+}
+
+@keyframes floatUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.overlay h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.overlay p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.buttons .btn {
+  background: linear-gradient(90deg, #007bff, #00d4ff);
+  color: white;
+  padding: 12px 28px;
   border: none;
   border-radius: 8px;
   margin: 10px;
   cursor: pointer;
   text-decoration: none;
+  font-weight: 500;
   display: inline-block;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
 }
-.btn:hover {
-  transform: scale(1.05);
-  background: #0056b3;
+.buttons .btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
 }
 .btn.secondary {
-  background: #28a745;
-}
-.btn.back {
-  margin-top: 20px;
-  background: #6c757d;
+  background: linear-gradient(90deg, #28a745, #32e875);
 }
 
-/* Login */
-.login-card {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
-  padding: 40px;
-  border-radius: 15px;
-  text-align: center;
-  color: #fff;
-  background-color: #2d3e50cc;
+/* === LOGIN PAGE === */
+.login-page {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url('images/Libraryaes.jpg') center/cover fixed no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.login-card input, .login-card select {
+
+.login-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  padding: 45px;
+  border-radius: 20px;
+  text-align: center;
+  width: 350px;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  animation: floatUp 1.2s ease-out;
+}
+
+.login-card h2 {
+  margin-bottom: 25px;
+  font-size: 1.6rem;
+}
+
+.login-card input,
+.login-card select {
   width: 100%;
   padding: 12px;
   margin: 10px 0;
   border-radius: 8px;
   border: none;
+  outline: none;
 }
 
-/* Dashboard */
-.dashboard {
-  text-align: center;
+.login-card button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #007bff, #00d4ff);
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
 }
+.login-card button:hover {
+  transform: scale(1.05);
+}
+
+/* === DASHBOARD === */
+.dashboard {
+  background: #f4f6fb;
+  color: #333;
+  text-align: center;
+  flex-direction: column;
+}
+
+.dashboard h2 {
+  margin-top: 20px;
+  font-size: 2rem;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  padding: 30px;
-}
-.card {
-  background: #fff;
+  gap: 25px;
   padding: 40px;
-  border-radius: 15px;
+}
+
+.card {
+  background: white;
+  padding: 45px;
+  border-radius: 18px;
   font-size: 1.2rem;
   text-decoration: none;
   color: #333;
   transition: 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 .blue { border-top: 6px solid #007bff; }
 .green { border-top: 6px solid #28a745; }
 .gold { border-top: 6px solid gold; }
 .red { border-top: 6px solid crimson; }
 
-/* Table */
+/* === BOOK LIST PAGE === */
+.list-page {
+  background: #e8f0ff;
+  color: #222;
+  flex-direction: column;
+  text-align: center;
+}
+
+.book-list {
+  list-style: none;
+  padding: 20px;
+  background: white;
+  width: 60%;
+  margin: 20px auto;
+  border-radius: 15px;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.book-list li {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  transition: 0.3s;
+}
+.book-list li:hover {
+  background: #e7f1ff;
+  transform: scale(1.02);
+}
+
+/* === REFERENCE BOOK PAGE === */
+.ref-page {
+  background: #f8f9fb;
+  color: #333;
+  flex-direction: column;
+  text-align: center;
+}
+
 table {
   border-collapse: collapse;
   width: 80%;
-  margin: auto;
-  text-align: center;
+  margin: 20px auto;
   background: white;
-  border-radius: 10px;
+  border-radius: 15px;
   overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 th, td {
-  padding: 12px;
+  padding: 14px;
   border-bottom: 1px solid #ddd;
 }
 tr:hover {
   background: #f0f0f0;
 }
 
-/* Book List */
-.book-list {
-  list-style: none;
-  padding: 20px;
-  background: white;
-  width: 60%;
-  margin: auto;
-  border-radius: 10px;
-  text-align: left;
-}
-.book-list li {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  transition: 0.3s;
-}
-.book-list li:hover {
-  background: #e7f1ff;
+/* === FINE CALCULATOR PAGE === */
+.fine-page {
+  background: #e9f7ef;
+  color: #222;
+  flex-direction: column;
+  text-align: center;
 }
 
-/* Fine Calculator */
 .fine-page input {
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
   margin-right: 10px;
 }
+
 #output {
   margin-top: 20px;
   font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.btn.back {
+  margin-top: 20px;
+  background: #6c757d;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+.btn.back:hover {
+  background: #5a6268;
+  transform: scale(1.05);
 }
